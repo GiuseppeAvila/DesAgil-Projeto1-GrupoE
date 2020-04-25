@@ -21,9 +21,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         button1 = (Button) findViewById(R.id.button1);
-        button2 = (Button) findViewById(R.id.button1);
-        button3 = (Button) findViewById(R.id.button1);
-        button4 = (Button) findViewById(R.id.button1);
+        button2 = (Button) findViewById(R.id.button2);
+        button3 = (Button) findViewById(R.id.button3);
+        button4 = (Button) findViewById(R.id.button4);
 
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
