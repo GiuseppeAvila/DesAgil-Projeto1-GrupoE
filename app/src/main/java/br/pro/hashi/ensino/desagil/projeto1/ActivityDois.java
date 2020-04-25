@@ -12,7 +12,7 @@ public class ActivityDois extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(layout.activity_main);
+        setContentView(layout.activity_2);
 
         TextView fome = (TextView) findViewById(id.TextFome);
 
