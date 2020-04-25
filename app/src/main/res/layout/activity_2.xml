@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ActivityDois">
+
+
+    <EditText
+        android:id="@+id/TextFome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="223dp"
+        android:layout_marginEnd="28dp"
+        android:layout_marginBottom="220dp"
+        android:backgroundTint="#5C3F51B5"
+        android:ems="10"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:foregroundTint="#3F51B5"
+        android:inputType="textPersonName"
+        android:text="Estou com Fome!"
+        android:textAlignment="center"
+        android:textSize="36sp" />
+</RelativeLayout>
