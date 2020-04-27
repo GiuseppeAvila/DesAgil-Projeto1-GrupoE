@@ -5,16 +5,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
-import static br.pro.hashi.ensino.desagil.projeto1.R.*;
-
-public class MainActivityTres extends AppCompatActivity {
+public class ActivityCinco extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_tres);
+        setContentView(R.layout.activity_cinco);
 
-        TextView sede = (TextView) findViewById(id.textSede);
+        TextView banheiro = (TextView) findViewById(R.id.textBanheiro);
 
     }
 }

@@ -14,7 +14,7 @@ public class ActivityDois extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(layout.activity_2);
 
-        TextView fome = (TextView) findViewById(id.TextFome);
+        TextView fome = (TextView) findViewById(id.textFome);
 
     }
 }
