@@ -12,7 +12,7 @@ public class ActivityQuatro extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quatro);
 
-        TextView fome = (TextView) findViewById(R.id.textDor);
+        TextView dor = (TextView) findViewById(R.id.textDor);
 
     }
 }

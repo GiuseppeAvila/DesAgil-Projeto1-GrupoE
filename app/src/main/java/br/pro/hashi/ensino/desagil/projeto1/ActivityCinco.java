@@ -12,7 +12,7 @@ public class ActivityCinco extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cinco);
 
-        TextView fome = (TextView) findViewById(R.id.textBanheiro);
+        TextView banheiro = (TextView) findViewById(R.id.textBanheiro);
 
     }
 }
