@@ -13,8 +13,9 @@ public class MainActivityTres extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_tres);
-
         TextView sede = (TextView) findViewById(id.textSede);
+        String text = getIntent().getStringExtra("text");
+        sede.setText(text);
 
     }
 }
