@@ -10,6 +10,7 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
     private MediaPlayer mediaPlayer;
+    private Button button;
     private Button button1;
     private Button button2;
     private Button button3;
@@ -20,10 +21,27 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        button = (Button) findViewById(R.id.button);
+        final MediaPlayer mp = MediaPlayer.create(this, R.raw.emergency);
+        button.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                if(mp.isPlaying() == true)
+                    // Pause the music player
+                    mp.pause();
+                    // If it's not playing
+                else
+                    // Resume the music player
+                    mp.start();
+            }
+        });
+
         button1 = (Button) findViewById(R.id.button1);
         button2 = (Button) findViewById(R.id.button2);
         button3 = (Button) findViewById(R.id.button3);
         button4 = (Button) findViewById(R.id.button4);
+
+
 
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
