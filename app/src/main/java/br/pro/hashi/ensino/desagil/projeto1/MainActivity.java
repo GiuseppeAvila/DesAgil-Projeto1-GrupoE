@@ -1,13 +1,12 @@
 package br.pro.hashi.ensino.desagil.projeto1;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
     private MediaPlayer mediaPlayer;
@@ -26,18 +25,19 @@ public class MainActivity extends AppCompatActivity {
 
         buttonEmergency = (Button) findViewById(R.id.buttonEmergencia);
         textMessage = (TextView) findViewById(R.id.textMensagem);
-        final MediaPlayer mp = MediaPlayer.create(this, R.raw.emergency);
-        buttonEmergency.setOnClickListener(new View.OnClickListener(){
+        mediaPlayer = MediaPlayer.create(this, R.raw.emergency);
+        buttonEmergency.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (mp.isPlaying() == true) {
+                if (textMessage.getText().toString().equals("! EMERGÊNCIA !")) {
                     // Pause the music player
-                    mp.pause();
+                    mediaPlayer.pause();
                     textMessage.setVisibility(View.INVISIBLE);
+                    textMessage.setText("");
                     // If it's not playing
                 } else {
                     // Resume the music player
-                    mp.start();
+                    mediaPlayer.start();
                     textMessage.setText("! EMERGÊNCIA !");
                     textMessage.setBackgroundColor(0xFFCC0000);
                     textMessage.setVisibility(View.VISIBLE);
@@ -53,11 +53,11 @@ public class MainActivity extends AppCompatActivity {
         buttonHunger.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mp.pause();
-                if (textMessage.getText() == "Estou com fome!") {
+                if (mediaPlayer.isPlaying()) { mediaPlayer.pause(); }
+                if (textMessage.getText().toString().equals("Estou com fome!")) {
                     textMessage.setVisibility(View.INVISIBLE);
                     textMessage.setText("");
-                } else{
+                } else {
                     textMessage.setText("Estou com fome!");
                     textMessage.setBackgroundColor(0xFFFFFFFF);
                     textMessage.setVisibility(View.VISIBLE);
@@ -68,11 +68,11 @@ public class MainActivity extends AppCompatActivity {
         buttonThirst.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mp.pause();
-                if (textMessage.getText() == "Estou com sede!") {
+                if (mediaPlayer.isPlaying()) { mediaPlayer.pause(); }
+                if (textMessage.getText().toString().equals("Estou com sede!")) {
                     textMessage.setVisibility(View.INVISIBLE);
                     textMessage.setText("");
-                } else{
+                } else {
                     textMessage.setText("Estou com sede!");
                     textMessage.setBackgroundColor(0xFFFFFFFF);
                     textMessage.setVisibility(View.VISIBLE);
@@ -83,11 +83,11 @@ public class MainActivity extends AppCompatActivity {
         buttonPain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mp.pause();
-                if (textMessage.getText() == "Estou com dor!") {
+                if (mediaPlayer.isPlaying()) { mediaPlayer.pause(); }
+                if (textMessage.getText().toString().equals("Estou com dor!")) {
                     textMessage.setVisibility(View.INVISIBLE);
                     textMessage.setText("");
-                } else{
+                } else {
                     textMessage.setText("Estou com dor!");
                     textMessage.setBackgroundColor(0xFFFFFFFF);
                     textMessage.setVisibility(View.VISIBLE);
@@ -98,11 +98,11 @@ public class MainActivity extends AppCompatActivity {
         buttonToilet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mp.pause();
-                if (textMessage.getText() == "Preciso ir ao banheiro!") {
+                if (mediaPlayer.isPlaying()) { mediaPlayer.pause(); }
+                if (textMessage.getText().toString().equals("Preciso ir ao banheiro!")) {
                     textMessage.setVisibility(View.INVISIBLE);
                     textMessage.setText("");
-                } else{
+                } else {
                     textMessage.setText("Preciso ir ao banheiro!");
                     textMessage.setBackgroundColor(0xFFFFFFFF);
                     textMessage.setVisibility(View.VISIBLE);
