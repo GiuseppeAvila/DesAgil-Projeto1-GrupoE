@@ -1,105 +1,114 @@
 package br.pro.hashi.ensino.desagil.projeto1;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
     private MediaPlayer mediaPlayer;
-    private Button button;
-    private Button button1;
-    private Button button2;
-    private Button button3;
-    private Button button4;
+
+    private TextView textMessage;
+    private Button buttonEmergency;
+    private Button buttonHunger;
+    private Button buttonThirst;
+    private Button buttonPain;
+    private Button buttonToilet;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        button = (Button) findViewById(R.id.button);
-        final MediaPlayer mp = MediaPlayer.create(this, R.raw.emergency);
-        button.setOnClickListener(new View.OnClickListener(){
+        buttonEmergency = (Button) findViewById(R.id.buttonEmergencia);
+        textMessage = (TextView) findViewById(R.id.textMensagem);
+        mediaPlayer = MediaPlayer.create(this, R.raw.emergency);
+        buttonEmergency.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(mp.isPlaying() == true)
+                if (textMessage.getText().toString().equals("! EMERGÊNCIA !")) {
                     // Pause the music player
-                    mp.pause();
+                    mediaPlayer.pause();
+                    textMessage.setVisibility(View.INVISIBLE);
+                    textMessage.setText("");
                     // If it's not playing
-                else
+                } else {
                     // Resume the music player
-                    mp.start();
+                    mediaPlayer.start();
+                    textMessage.setText("! EMERGÊNCIA !");
+                    textMessage.setBackgroundColor(0xFFCC0000);
+                    textMessage.setVisibility(View.VISIBLE);
+                }
             }
         });
 
-        button1 = (Button) findViewById(R.id.button1);
-        button2 = (Button) findViewById(R.id.button2);
-        button3 = (Button) findViewById(R.id.button3);
-        button4 = (Button) findViewById(R.id.button4);
+        buttonHunger = (Button) findViewById(R.id.buttonFome);
+        buttonThirst = (Button) findViewById(R.id.buttonSede);
+        buttonPain = (Button) findViewById(R.id.buttonDor);
+        buttonToilet = (Button) findViewById(R.id.buttonBanheiro);
 
-
-
-        button1.setOnClickListener(new View.OnClickListener() {
+        buttonHunger.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openActivity2();
+                if (mediaPlayer.isPlaying()) { mediaPlayer.pause(); }
+                if (textMessage.getText().toString().equals("Estou com fome!")) {
+                    textMessage.setVisibility(View.INVISIBLE);
+                    textMessage.setText("");
+                } else {
+                    textMessage.setText("Estou com fome!");
+                    textMessage.setBackgroundColor(0xFFFFFFFF);
+                    textMessage.setVisibility(View.VISIBLE);
+                }
             }
         });
 
-        button2.setOnClickListener(new View.OnClickListener() {
+        buttonThirst.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openActivity3();
+                if (mediaPlayer.isPlaying()) { mediaPlayer.pause(); }
+                if (textMessage.getText().toString().equals("Estou com sede!")) {
+                    textMessage.setVisibility(View.INVISIBLE);
+                    textMessage.setText("");
+                } else {
+                    textMessage.setText("Estou com sede!");
+                    textMessage.setBackgroundColor(0xFFFFFFFF);
+                    textMessage.setVisibility(View.VISIBLE);
+                }
             }
         });
 
-        button3.setOnClickListener(new View.OnClickListener() {
+        buttonPain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openActivity4();
+                if (mediaPlayer.isPlaying()) { mediaPlayer.pause(); }
+                if (textMessage.getText().toString().equals("Estou com dor!")) {
+                    textMessage.setVisibility(View.INVISIBLE);
+                    textMessage.setText("");
+                } else {
+                    textMessage.setText("Estou com dor!");
+                    textMessage.setBackgroundColor(0xFFFFFFFF);
+                    textMessage.setVisibility(View.VISIBLE);
+                }
             }
         });
 
-        button4.setOnClickListener(new View.OnClickListener() {
+        buttonToilet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openActivity5();
+                if (mediaPlayer.isPlaying()) { mediaPlayer.pause(); }
+                if (textMessage.getText().toString().equals("Preciso ir ao banheiro!")) {
+                    textMessage.setVisibility(View.INVISIBLE);
+                    textMessage.setText("");
+                } else {
+                    textMessage.setText("Preciso ir ao banheiro!");
+                    textMessage.setBackgroundColor(0xFFFFFFFF);
+                    textMessage.setVisibility(View.VISIBLE);
+                }
             }
         });
-
-
     }
-
-
-
-
-    public void openActivity2() {
-        Intent intent = new Intent(this, ActivityDois.class);
-        startActivity(intent);
-    }
-
-
-    public void openActivity3() {
-        Intent intent = new Intent(this, MainActivityTres.class);
-        startActivity(intent);
-    }
-
-    public void openActivity4() {
-        Intent intent = new Intent(this, ActivityQuatro.class);
-        startActivity(intent);
-    }
-
-
-    public void openActivity5() {
-        Intent intent = new Intent(this, ActivityCinco.class);
-        startActivity(intent);
-    }
-
-
-
 
 }
