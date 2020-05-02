@@ -2,65 +2,141 @@ package br.pro.hashi.ensino.desagil.projeto1;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
     private MediaPlayer mediaPlayer;
-    private Button button1;
-    private Button button2;
-    private Button button3;
-    private Button button4;
+    float x1, y1, x2, y2;
+
+    private TextView textMessage;
+    private Button buttonEmergency;
+    private Button buttonHunger;
+    private Button buttonThirst;
+    private Button buttonPain;
+    private Button buttonToilet;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        button1 = (Button) findViewById(R.id.button1);
-        button2 = (Button) findViewById(R.id.button2);
-        button3 = (Button) findViewById(R.id.button3);
-        button4 = (Button) findViewById(R.id.button4);
 
-        button1.setOnClickListener(new View.OnClickListener() {
+        buttonEmergency = (Button) findViewById(R.id.buttonEmergencia);
+        textMessage = (TextView) findViewById(R.id.textMensagem);
+        mediaPlayer = MediaPlayer.create(this, R.raw.emergency);
+        buttonEmergency.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                openActivity2("Estou com fome!");
+            public void onClick(View view) {
+                if (textMessage.getText().toString().equals("! EMERGÊNCIA !")) {
+                    // Pause the music player
+                    mediaPlayer.pause();
+                    textMessage.setVisibility(View.INVISIBLE);
+                    textMessage.setText("");
+                    // If it's not playing
+                } else {
+                    // Resume the music player
+                    mediaPlayer.start();
+                    textMessage.setText("! EMERGÊNCIA !");
+                    textMessage.setBackgroundColor(0xFFCC0000);
+                    textMessage.setVisibility(View.VISIBLE);
+                }
             }
         });
 
-        button2.setOnClickListener(new View.OnClickListener() {
+        buttonHunger = (Button) findViewById(R.id.buttonFome);
+        buttonThirst = (Button) findViewById(R.id.buttonSede);
+        buttonPain = (Button) findViewById(R.id.buttonDor);
+        buttonToilet = (Button) findViewById(R.id.buttonBanheiro);
+
+        buttonHunger.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openActivity2("Estou com sede!");
+                if (mediaPlayer.isPlaying()) { mediaPlayer.pause(); }
+                if (textMessage.getText().toString().equals("Estou com fome!")) {
+                    textMessage.setVisibility(View.INVISIBLE);
+                    textMessage.setText("");
+                } else {
+                    textMessage.setText("Estou com fome!");
+                    textMessage.setBackgroundColor(0xFFFFFFFF);
+                    textMessage.setVisibility(View.VISIBLE);
+                }
             }
         });
 
-        button3.setOnClickListener(new View.OnClickListener() {
+
+        buttonThirst.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openActivity2("Estou com dor!");
+                if (mediaPlayer.isPlaying()) { mediaPlayer.pause(); }
+                if (textMessage.getText().toString().equals("Estou com sede!")) {
+                    textMessage.setVisibility(View.INVISIBLE);
+                    textMessage.setText("");
+                } else {
+                    textMessage.setText("Estou com sede!");
+                    textMessage.setBackgroundColor(0xFFFFFFFF);
+                    textMessage.setVisibility(View.VISIBLE);
+                }
             }
         });
 
-        button4.setOnClickListener(new View.OnClickListener() {
+        buttonPain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openActivity2("Quero ir ao banheiro!");
+                if (mediaPlayer.isPlaying()) { mediaPlayer.pause(); }
+                if (textMessage.getText().toString().equals("Estou com dor!")) {
+                    textMessage.setVisibility(View.INVISIBLE);
+                    textMessage.setText("");
+                } else {
+                    textMessage.setText("Estou com dor!");
+                    textMessage.setBackgroundColor(0xFFFFFFFF);
+                    textMessage.setVisibility(View.VISIBLE);
+                }
             }
         });
 
-
+        buttonToilet.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mediaPlayer.isPlaying()) { mediaPlayer.pause(); }
+                if (textMessage.getText().toString().equals("Preciso ir ao banheiro!")) {
+                    textMessage.setVisibility(View.INVISIBLE);
+                    textMessage.setText("");
+                } else {
+                    textMessage.setText("Preciso ir ao banheiro!");
+                    textMessage.setBackgroundColor(0xFFFFFFFF);
+                    textMessage.setVisibility(View.VISIBLE);
+                }
+            }
+        });
     }
 
-    public void openActivity2(String texto) {
-        Intent intent = new Intent(this, MainActivityTres.class);
-        intent.putExtra("text", texto);
-        startActivity(intent);
 
+    public boolean onTouchEvent(MotionEvent touchEvent){
+        switch(touchEvent.getAction()){
+            case MotionEvent.ACTION_DOWN:
+                 x1 = touchEvent.getX();
+                 y1 = touchEvent.getY();
+                break;
+            case MotionEvent.ACTION_UP:
+                x2 = touchEvent.getX();
+                y2 = touchEvent.getY();
+                if(x1 < x2){
+                Intent i = new Intent(MainActivity.this, SMSActivity.class);
+                startActivity(i);
+            }else if(x1 > x2){
+                Intent i = new Intent(MainActivity.this, Morse.class);
+                startActivity(i);
+            }
+            break;
+        }
+        return false;
     }
 
 }

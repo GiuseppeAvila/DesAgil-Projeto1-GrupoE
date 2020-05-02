@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="contatos">
+        <item>Cuidador</item>
+        <item>Irmão</item>
+        <item>Mãe</item>
+        <item>Pai</item>
+        <item>Amigo1</item>
+        <item>Amigo2</item>
+        <item>Amigo3</item>
+\    </string-array>
+
+
+    <string-array name="mensagens">
+        <item>Oi, tudo bem?</item>
+        <item>Quanto tempo!</item>
+        <item>Blaaa</item>
+        <item>Blaaaaa</item>
+        <item>Sei lá</item>
+    </string-array>
+</resources>
+
+
