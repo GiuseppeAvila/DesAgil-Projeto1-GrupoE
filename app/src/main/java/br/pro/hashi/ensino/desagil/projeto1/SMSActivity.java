@@ -93,7 +93,8 @@ public class SMSActivity extends AppCompatActivity implements AdapterView.OnItem
 
 //FUNÇÃO PARA O BOTÃO DE ENVIO
         Spinner spinner_contacts = (Spinner) findViewById(R.id.spinner);
-        ArrayAdapter<CharSequence> adapter_contacts = ArrayAdapter.createFromResource(this,R.array.contatos, android.R.layout.simple_spinner_item);
+        ArrayAdapter<CharSequence> adapter_contacts = ArrayAdapter.createFromResource(this,R.array.Irmão, android.R.layout.simple_spinner_item);
+
 // Specify the layout to use when the list of choices appears
         adapter_contacts.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 // Apply the adapter to the spinner
@@ -111,22 +112,23 @@ public class SMSActivity extends AppCompatActivity implements AdapterView.OnItem
 
 
 
-        Spinner textMessage = findViewById(R.id.spinner);
-        Spinner textPhone = findViewById(R.id.spinner2);
+        Spinner textMessage = findViewById(R.id.spinner2);
+        Spinner textPhone = findViewById(R.id.spinner);
         Button buttonSend = findViewById(R.id.button_send);
 
         buttonSend.setOnClickListener((view) -> {
             String message = textMessage.getSelectedItem().toString();
             String phone = textPhone.getSelectedItem().toString();
 
-
-
-            // Esta verificação do número de telefone é bem
-            // rígida, pois exige até mesmo o código do país.
-            if (!PhoneNumberUtils.isGlobalPhoneNumber(phone)) {
-                showToast("Número inválido!");
+            if (message.isEmpty()) {
+                showToast("Mensagem inválida!");
                 return;
+            }else{
+
+                textEnvio.setText("Enviado para: "+phone+System.lineSeparator()+System.lineSeparator()+"Mensagem: "+message);
             }
+
+
 
             // Enviar uma mensagem de SMS. Por simplicidade,
             // não estou verificando se foi mesmo enviada,

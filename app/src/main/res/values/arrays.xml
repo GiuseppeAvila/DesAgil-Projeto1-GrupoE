@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="contatos">
-        <item> Contatos </item>
-        <item>999999999</item>
-        <item>123456789</item>
-        <item>112358132</item>
+    <string-array name="Irmão">
+        <item>123456789 </item>
 
-\    </string-array>
+    </string-array>
+
+    <string-array name="Cuidador">
+        <item>987654321</item>
+
+    </string-array>
+
+
 
 
     <string-array name="mensagens">
