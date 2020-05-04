@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="contatos">
-        <item> </item>
+        <item> Contatos </item>
         <item>999999999</item>
         <item>123456789</item>
         <item>112358132</item>
@@ -10,7 +10,7 @@
 
 
     <string-array name="mensagens">
-        <item>  </item>
+        <item> Mensagem </item>
         <item>Oi, tudo bem?</item>
         <item>Quanto tempo!</item>
         <item>Blaaa</item>

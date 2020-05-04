@@ -6,6 +6,25 @@
     android:layout_height="match_parent"
     tools:context=".SMSActivity">
 
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="match_parent"
+        android:layout_height="53dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="175dp"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="197dp" />
+
+    <Spinner
+        android:id="@+id/spinner2"
+        android:layout_width="match_parent"
+        android:layout_height="53dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="93dp"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="197dp" />
+
     <Button
         android:id="@+id/button_send"
         android:layout_width="395dp"
@@ -47,31 +66,6 @@
         android:layout_marginBottom="9dp"
         android:text="Permissão para enviar mensagens" />
 
-    <EditText
-        android:id="@+id/textMensagem"
-        style="@style/Widget.AppCompat.EditText"
-        android:layout_width="332dp"
-        android:layout_height="65dp"
-        android:layout_above="@+id/button_send"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="0dp"
-        android:layout_marginBottom="2dp"
-        android:ems="10"
-        android:hint="Mensagem"
-
-        android:inputType="textPersonName" />
-
-    <EditText
-        android:id="@+id/textContato"
-        android:layout_width="335dp"
-        android:layout_height="70dp"
-        android:layout_alignEnd="@+id/textMensagem"
-        android:layout_alignBottom="@+id/textMensagem"
-        android:layout_marginEnd="-3dp"
-        android:layout_marginBottom="90dp"
-        android:ems="10"
-        android:hint="Telefone"
-        android:inputType="phone" />
 
     <TextView
         android:id="@+id/textEnviado"
