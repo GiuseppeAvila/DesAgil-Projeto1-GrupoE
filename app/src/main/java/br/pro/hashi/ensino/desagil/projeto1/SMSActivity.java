@@ -31,6 +31,7 @@ public class SMSActivity extends AppCompatActivity implements AdapterView.OnItem
     float x1, y1, x2, y2;
     private Button buttonSend;
 
+
     private static final int REQUEST_SEND_SMS = 0;
 
 
@@ -55,9 +56,8 @@ public class SMSActivity extends AppCompatActivity implements AdapterView.OnItem
 //CHAMANDO OS BOTÕES E CAIXA DE TEXTO
         ImageButton contacts = findViewById(R.id.procurar_contatos);
         Button buttonPermission = findViewById(R.id.buttonPermission);
-        Button buttonSend = findViewById(R.id.button_send);
-        EditText textMessage = findViewById(R.id.textMensagem);
-        EditText textPhone = findViewById(R.id.textContato);
+      //  Button buttonSend = findViewById(R.id.button_send);
+
         TextView textEnvio = findViewById(R.id.textEnviado);
 
 //FUNÇÃO PARA ABRIR OS CONTATOS
@@ -92,18 +92,32 @@ public class SMSActivity extends AppCompatActivity implements AdapterView.OnItem
 
 
 //FUNÇÃO PARA O BOTÃO DE ENVIO
+        Spinner spinner_contacts = (Spinner) findViewById(R.id.spinner);
+        ArrayAdapter<CharSequence> adapter_contacts = ArrayAdapter.createFromResource(this,R.array.contatos, android.R.layout.simple_spinner_item);
+// Specify the layout to use when the list of choices appears
+        adapter_contacts.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+// Apply the adapter to the spinner
+        spinner_contacts.setAdapter(adapter_contacts);
+        spinner_contacts.setOnItemSelectedListener(this);
+
+
+        Spinner spinner_msgs = (Spinner) findViewById(R.id.spinner2);
+        ArrayAdapter<CharSequence> adapter_msgs = ArrayAdapter.createFromResource(this,R.array.mensagens, android.R.layout.simple_spinner_item);
+// Specify the layout to use when the list of choices appears
+        adapter_msgs.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+// Apply the adapter to the spinner
+        spinner_msgs.setAdapter(adapter_msgs);
+        spinner_msgs.setOnItemSelectedListener(this);
+
+
+
+        Spinner textMessage = findViewById(R.id.spinner);
+        Spinner textPhone = findViewById(R.id.spinner2);
+        Button buttonSend = findViewById(R.id.button_send);
+
         buttonSend.setOnClickListener((view) -> {
-            String message = textMessage.getText().toString();
-            String phone = textPhone.getText().toString();
-
-            if (message.isEmpty()) {
-                showToast("Mensagem inválida!");
-                return;
-            }else{
-
-                textEnvio.setText("Enviado para: "+phone+System.lineSeparator()+System.lineSeparator()+"Mensagem: "+message);
-            }
-
+            String message = textMessage.getSelectedItem().toString();
+            String phone = textPhone.getSelectedItem().toString();
 
 
 
@@ -120,10 +134,6 @@ public class SMSActivity extends AppCompatActivity implements AdapterView.OnItem
             SmsManager manager = SmsManager.getDefault();
             manager.sendTextMessage(phone, null, message, null, null);
 
-            // Limpar o campo para nenhum engraçadinho
-            // ficar apertando o botão várias vezes.
-            textMessage.setText("");
-            textPhone.setText("");
         });
 
 
