@@ -6,75 +6,16 @@
     android:layout_height="match_parent"
     tools:context=".SMSActivity">
 
-    <Spinner
-        android:id="@+id/spinner"
-        android:layout_width="match_parent"
-        android:layout_height="53dp"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="287dp"
-        android:background="#00FFFFFF"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="197dp" />
-
-    <Spinner
-        android:id="@+id/spinner2"
-        android:layout_width="match_parent"
-        android:layout_height="53dp"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="152dp"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="197dp" />
-
-    <EditText
-        android:id="@+id/contato"
-        android:layout_width="189dp"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/spinner"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="108dp"
-        android:layout_marginBottom="0dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Contato"
-        android:textAlignment="viewStart"
-        android:textSize="24sp"
-        android:textStyle="bold" />
-
-    <EditText
-        android:id="@+id/mensagem"
-        android:layout_width="186dp"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/spinner"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="113dp"
-        android:layout_marginBottom="-131dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Mensagem"
-        android:textAlignment="viewStart"
-        android:textSize="24sp"
-        android:textStyle="bold" />
-
     <Button
         android:id="@+id/button_send"
-        android:layout_width="match_parent"
-        android:layout_height="69dp"
+        android:layout_width="395dp"
+        android:layout_height="75dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="-1dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
         android:background="#5C009688"
         android:text="Enviar" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="412dp"
-        android:layout_height="197dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="0dp"
-        android:layout_marginBottom="405dp"
-        app:srcCompat="@drawable/desagil_msg" />
 
     <ImageButton
         android:id="@+id/imageButton"
@@ -82,26 +23,64 @@
         android:layout_height="38dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="115dp"
-        android:layout_marginBottom="219dp"
+        android:layout_marginEnd="347dp"
+        android:layout_marginBottom="102dp"
         app:srcCompat="@android:drawable/sym_action_email" />
 
     <ImageButton
         android:id="@+id/procurar_contatos"
-        android:layout_width="71dp"
-        android:layout_height="39dp"
+        android:layout_width="wrap_content"
+        android:layout_height="37dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="109dp"
-        android:layout_marginBottom="350dp"
+        android:layout_marginEnd="347dp"
+        android:layout_marginBottom="185dp"
         app:srcCompat="?android:attr/actionModeFindDrawable" />
 
     <Button
         android:id="@+id/buttonPermission"
-        android:layout_width="match_parent"
-        android:layout_height="65dp"
+        android:layout_width="396dp"
+        android:layout_height="74dp"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="87dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="9dp"
         android:text="Permissão para enviar mensagens" />
+
+    <EditText
+        android:id="@+id/textMensagem"
+        style="@style/Widget.AppCompat.EditText"
+        android:layout_width="332dp"
+        android:layout_height="65dp"
+        android:layout_above="@+id/button_send"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="2dp"
+        android:ems="10"
+        android:hint="Mensagem"
+
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/textContato"
+        android:layout_width="335dp"
+        android:layout_height="70dp"
+        android:layout_alignEnd="@+id/textMensagem"
+        android:layout_alignBottom="@+id/textMensagem"
+        android:layout_marginEnd="-3dp"
+        android:layout_marginBottom="90dp"
+        android:ems="10"
+        android:hint="Telefone"
+        android:inputType="phone" />
+
+    <TextView
+        android:id="@+id/textEnviado"
+        android:layout_width="408dp"
+        android:layout_height="415dp"
+        android:layout_above="@+id/textContato"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="-2dp"
+        android:layout_marginBottom="6dp"
+        android:textSize="25sp"/>
 
 </RelativeLayout>
