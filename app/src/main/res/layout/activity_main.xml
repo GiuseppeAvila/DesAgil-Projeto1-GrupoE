@@ -116,15 +116,25 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginStart="13dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginEnd="6dp"
+        android:layout_marginBottom="14dp"
         android:background="@android:color/holo_red_dark"
         android:gravity="center"
         android:text=""
         android:textAlignment="center"
         android:textSize="30sp"
         android:visibility="invisible" />
+
+    <TextView
+        android:id="@+id/textNome"
+        android:layout_width="218dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/buttonEmergencia"
+        android:layout_alignEnd="@+id/textMensagem"
+        android:layout_marginEnd="9dp"
+        android:layout_marginBottom="317dp"
+        android:text="F" />
 
 </RelativeLayout>
