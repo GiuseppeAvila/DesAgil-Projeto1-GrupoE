@@ -1,7 +1,13 @@
 package br.pro.hashi.ensino.desagil.projeto1;
 
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
+
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -10,6 +16,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
     private MediaPlayer mediaPlayer;
+    float x1, y1, x2, y2;
 
     private TextView textMessage;
     private Button buttonEmergency;
@@ -22,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
 
         buttonEmergency = (Button) findViewById(R.id.buttonEmergencia);
         textMessage = (TextView) findViewById(R.id.textMensagem);
@@ -64,6 +72,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+
 
         buttonThirst.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -109,6 +118,28 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+
+    public boolean onTouchEvent(MotionEvent touchEvent){
+        switch(touchEvent.getAction()){
+            case MotionEvent.ACTION_DOWN:
+                 x1 = touchEvent.getX();
+                 y1 = touchEvent.getY();
+                break;
+            case MotionEvent.ACTION_UP:
+                x2 = touchEvent.getX();
+                y2 = touchEvent.getY();
+                if(x1 < x2){
+                Intent i = new Intent(MainActivity.this, SMSActivity.class);
+                startActivity(i);
+            }else if(x1 > x2){
+                Intent i = new Intent(MainActivity.this, Morse.class);
+                startActivity(i);
+            }
+            break;
+        }
+        return false;
     }
 
 }
