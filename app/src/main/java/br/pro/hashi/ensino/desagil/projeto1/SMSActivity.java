@@ -8,28 +8,27 @@ import androidx.core.content.ContextCompat;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.telephony.PhoneNumberUtils;
 import android.telephony.SmsManager;
 import android.view.MotionEvent;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.HashMap;
+import java.util.Map;
 
 
 public class SMSActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     float x1, y1, x2, y2;
     private Button buttonSend;
+    private int indexContatos;
 
 
     private static final int REQUEST_SEND_SMS = 0;
@@ -93,14 +92,14 @@ public class SMSActivity extends AppCompatActivity implements AdapterView.OnItem
 
 //FUNÇÃO PARA O BOTÃO DE ENVIO
         Spinner spinner_contacts = (Spinner) findViewById(R.id.spinner);
-        ArrayAdapter<CharSequence> adapter_contacts = ArrayAdapter.createFromResource(this,R.array.Irmão, android.R.layout.simple_spinner_item);
+        ArrayAdapter<CharSequence> adapter_contacts = ArrayAdapter.createFromResource(this,R.array.nomes, android.R.layout.simple_spinner_item);
 
 // Specify the layout to use when the list of choices appears
         adapter_contacts.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 // Apply the adapter to the spinner
         spinner_contacts.setAdapter(adapter_contacts);
         spinner_contacts.setOnItemSelectedListener(this);
-
+        int indexContatos= spinner_contacts.getSelectedItemPosition();
 
         Spinner spinner_msgs = (Spinner) findViewById(R.id.spinner2);
         ArrayAdapter<CharSequence> adapter_msgs = ArrayAdapter.createFromResource(this,R.array.mensagens, android.R.layout.simple_spinner_item);
@@ -113,12 +112,22 @@ public class SMSActivity extends AppCompatActivity implements AdapterView.OnItem
 
 
         Spinner textMessage = findViewById(R.id.spinner2);
-        Spinner textPhone = findViewById(R.id.spinner);
+        String[] phoneNumber = getResources().getStringArray(R.array.numeros);
+        String[] textPhone = getResources().getStringArray(R.array.nomes);
         Button buttonSend = findViewById(R.id.button_send);
+
+        Map<String, String> map = new HashMap<>();
+
+        for (int i = 0; i < textPhone.length; i++) {
+            map.put(textPhone[i], phoneNumber[i]);
+        }
 
         buttonSend.setOnClickListener((view) -> {
             String message = textMessage.getSelectedItem().toString();
-            String phone = textPhone.getSelectedItem().toString();
+
+            String phone = map.get(indexContatos);
+            System.out.println("telefoneeee" + phone);
+            System.out.println(indexContatos);
 
             if (message.isEmpty()) {
                 showToast("Mensagem inválida!");
@@ -172,11 +181,15 @@ public class SMSActivity extends AppCompatActivity implements AdapterView.OnItem
         return false;
     }
 
+
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
         String sSelected=adapterView.getItemAtPosition(i).toString();
         Toast.makeText(this,sSelected,Toast.LENGTH_SHORT).show();
+        int Hold = adapterView.getSelectedItemPosition() + 1 ;
+
     }
+
 
     @Override
     public void onNothingSelected(AdapterView<?> adapterView) {
