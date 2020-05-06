@@ -94,6 +94,7 @@ public class SMSActivity extends AppCompatActivity implements AdapterView.OnItem
 //FUNÇÃO PARA O BOTÃO DE ENVIO
         Spinner spinner_contacts = (Spinner) findViewById(R.id.spinner);
         ArrayAdapter<CharSequence> adapter_contacts = ArrayAdapter.createFromResource(this,R.array.contatos, android.R.layout.simple_spinner_item);
+        ArrayAdapter<CharSequence> adapter_numeros = ArrayAdapter.createFromResource(this,R.array.numeros, android.R.layout.simple_spinner_item);
 // Specify the layout to use when the list of choices appears
         adapter_contacts.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 // Apply the adapter to the spinner
@@ -111,28 +112,31 @@ public class SMSActivity extends AppCompatActivity implements AdapterView.OnItem
 
 
 
-        Spinner textMessage = findViewById(R.id.spinner);
-        Spinner textPhone = findViewById(R.id.spinner2);
+        Spinner textMessage = findViewById(R.id.spinner2);
+        Spinner textPhone = findViewById(R.id.spinner);
         Button buttonSend = findViewById(R.id.button_send);
 
         buttonSend.setOnClickListener((view) -> {
             String message = textMessage.getSelectedItem().toString();
-            String phone = textPhone.getSelectedItem().toString();
+            int id = textPhone.getSelectedItemPosition();
+            String numero = (String) adapter_numeros.getItem(id);
 
 
-
-            // Esta verificação do número de telefone é bem
-            // rígida, pois exige até mesmo o código do país.
-            if (!PhoneNumberUtils.isGlobalPhoneNumber(phone)) {
-                showToast("Número inválido!");
+            if (message.isEmpty()) {
+                showToast("Mensagem inválida!");
                 return;
+            }else{
+
+                textEnvio.setText("Enviado para: "+numero+System.lineSeparator()+System.lineSeparator()+"Mensagem: "+message);
             }
+
+
 
             // Enviar uma mensagem de SMS. Por simplicidade,
             // não estou verificando se foi mesmo enviada,
             // mas é possível fazer uma versão que verifica.
             SmsManager manager = SmsManager.getDefault();
-            manager.sendTextMessage(phone, null, message, null, null);
+            manager.sendTextMessage(numero, null, message, null, null);
 
         });
 
@@ -160,10 +164,6 @@ public class SMSActivity extends AppCompatActivity implements AdapterView.OnItem
                     Intent i = new Intent(SMSActivity.this, Morse.class);
 
                     startActivity(i);
-                }else if(x1 > x2){
-                    Intent i = new Intent(SMSActivity.this, MainActivity.class);
-
-                    startActivity(i);
                 }
                 break;
         }
@@ -173,6 +173,7 @@ public class SMSActivity extends AppCompatActivity implements AdapterView.OnItem
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
         String sSelected=adapterView.getItemAtPosition(i).toString();
+
         Toast.makeText(this,sSelected,Toast.LENGTH_SHORT).show();
     }
 
