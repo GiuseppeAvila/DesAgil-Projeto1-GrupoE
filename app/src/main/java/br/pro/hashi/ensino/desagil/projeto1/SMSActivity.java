@@ -161,7 +161,7 @@ public class SMSActivity extends AppCompatActivity implements AdapterView.OnItem
                 x2 = touchEvent.getX();
                 y2 = touchEvent.getY();
                 if(x1 < x2){
-                    Intent i = new Intent(SMSActivity.this, Morse.class);
+                    Intent i = new Intent(SMSActivity.this, MainActivity.class);
 
                     startActivity(i);
                 }
