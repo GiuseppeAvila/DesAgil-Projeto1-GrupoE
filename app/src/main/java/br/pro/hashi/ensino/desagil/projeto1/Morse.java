@@ -25,10 +25,10 @@ public class Morse extends AppCompatActivity {
             case MotionEvent.ACTION_UP:
                 x2 = touchEvent.getX();
                 y2 = touchEvent.getY();
-                if(x1 < x2){
+                if(x1 > x2){
                     Intent i = new Intent(Morse.this, MainActivity.class);
                     startActivity(i);
-                }else if(x1 > x2){
+                }else if(x1 < x2){
                     Intent i = new Intent(Morse.this, SMSActivity.class);
                     startActivity(i);
                 }
