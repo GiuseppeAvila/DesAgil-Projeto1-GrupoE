@@ -137,7 +137,10 @@ public class MainActivity extends AppCompatActivity {
                 if(x1 > x2){
                 Intent i = new Intent(MainActivity.this, SMSActivity.class);
                 startActivity(i);
-            }
+            }else if(x1 < x2){
+                    Intent i = new Intent(MainActivity.this, Morse.class);
+                    startActivity(i);
+                }
 
             break;
         }
