@@ -5,7 +5,9 @@
 
 package br.pro.hashi.ensino.desagil.projeto1;
 
-import java.util.Arrays;
+import android.widget.ArrayAdapter;
+
+
 import java.util.HashMap;
 import java.util.LinkedList;
 
@@ -14,9 +16,55 @@ public class Translator {
     private HashMap<Character, Node> map;
 
 
+
     // Você deve mudar o recheio do construtor,
     // de acordo com os requisitos do projeto.
-    public Translator() {
+    public Translator(Node root) {
+        this.root = root;
+        Node a = new Node('a');
+        Node b = new Node('b');
+        Node c = new Node('c');
+        Node d = new Node('d');
+        Node e = new Node('e');
+        Node f = new Node('f');
+        Node g = new Node('g');
+        Node h = new Node('h');
+        Node i = new Node('i');
+        Node j = new Node('j');
+        Node k = new Node('k');
+        Node l = new Node('l');
+        Node m = new Node('m');
+        Node n = new Node('n');
+        Node o = new Node('o');
+        Node p = new Node('p');
+        Node q = new Node('q');
+        Node r = new Node('r');
+        Node s = new Node('s');
+        Node t = new Node('t');
+        Node u = new Node('u');
+        Node v = new Node('v');
+        Node w = new Node('w');
+        Node x = new Node('x');
+        Node y = new Node('y');
+        Node z = new Node('z');
+        Node n_0 = new Node('0');
+        Node n_1 = new Node('a');
+        Node n_2 = new Node('a');
+        Node n_3 = new Node('a');
+        Node n_4 = new Node('a');
+        Node n_5= new Node('a');
+        Node n_6 = new Node('a');
+        Node n_7 = new Node('a');
+        Node n_8 = new Node('a');
+        Node n_9 = new Node('a');
+
+
+
+
+
+
+
+
     }
 
 

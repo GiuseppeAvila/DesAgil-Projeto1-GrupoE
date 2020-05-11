@@ -13,8 +13,8 @@
         android:layout_height="52dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="-3dp"
-        android:layout_marginBottom="173dp"
+        android:layout_marginEnd="-8dp"
+        android:layout_marginBottom="91dp"
         tools:layout_editor_absoluteX="1dp"
         tools:layout_editor_absoluteY="197dp" />
 
@@ -24,8 +24,8 @@
         android:layout_height="52dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="-2dp"
-        android:layout_marginBottom="92dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="174dp"
         tools:layout_editor_absoluteX="1dp"
         tools:layout_editor_absoluteY="197dp" />
 
@@ -46,8 +46,8 @@
         android:layout_height="38dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="347dp"
-        android:layout_marginBottom="102dp"
+        android:layout_marginEnd="350dp"
+        android:layout_marginBottom="180dp"
         app:srcCompat="@android:drawable/sym_action_email" />
 
     <ImageButton
@@ -56,8 +56,8 @@
         android:layout_height="37dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="347dp"
-        android:layout_marginBottom="185dp"
+        android:layout_marginEnd="346dp"
+        android:layout_marginBottom="100dp"
         app:srcCompat="?android:attr/actionModeFindDrawable" />
 
     <Button
@@ -78,9 +78,19 @@
         android:layout_height="415dp"
         android:layout_above="@+id/textContato"
         android:layout_alignParentEnd="true"
-        android:layout_marginEnd="-2dp"
-        android:textColorLink="#3F51B5"
+        android:layout_marginEnd="-4dp"
         android:layout_marginBottom="6dp"
-        android:textSize="25sp"/>
+        android:textColorLink="#3F51B5"
+        android:textSize="25sp" />
+
+    <Switch
+        android:id="@+id/switch2"
+        android:layout_width="108dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/spinner"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="289dp"
+        android:layout_marginBottom="85dp"
+        android:text="Switch" />
 
 </RelativeLayout>
