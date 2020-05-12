@@ -63,44 +63,6 @@ public class Translator {
         Node nullnode2 = new Node(' ');
         Node nullnode3 = new Node(' ');
 
-        this.map=new HashMap<>();
-        map.put('a',a);
-        map.put('b',b);
-        map.put('c',c);
-        map.put('d',d);
-        map.put('e',e);
-        map.put('f',f);
-        map.put('g',g);
-        map.put('h',h);
-        map.put('i',i);
-        map.put('j',j);
-        map.put('k',k);
-        map.put('l',l);
-        map.put('m',m);
-        map.put('n',n);
-        map.put('o',o);
-        map.put('p',p);
-        map.put('q',q);
-        map.put('r',r);
-        map.put('s',s);
-        map.put('t',t);
-        map.put('u',u);
-        map.put('v',v);
-        map.put('w',w);
-        map.put('x',x);
-        map.put('y',y);
-        map.put('z',z);
-        map.put('0',n_0);
-        map.put('1',n_1);
-        map.put('2',n_2);
-        map.put('3',n_3);
-        map.put('4',n_4);
-        map.put('5',n_5);
-        map.put('6',n_6);
-        map.put('7',n_7);
-        map.put('8',n_8);
-        map.put('9',n_9);
-
 
         linkNodes(e,i,a,root);
         linkNodes(i,s,u,e);
@@ -149,6 +111,44 @@ public class Translator {
         q.setParent(g);
 
 
+        this.map=new HashMap<>();
+        map.put('a',a);
+        map.put('b',b);
+        map.put('c',c);
+        map.put('d',d);
+        map.put('e',e);
+        map.put('f',f);
+        map.put('g',g);
+        map.put('h',h);
+        map.put('i',i);
+        map.put('j',j);
+        map.put('k',k);
+        map.put('l',l);
+        map.put('m',m);
+        map.put('n',n);
+        map.put('o',o);
+        map.put('p',p);
+        map.put('q',q);
+        map.put('r',r);
+        map.put('s',s);
+        map.put('t',t);
+        map.put('u',u);
+        map.put('v',v);
+        map.put('w',w);
+        map.put('x',x);
+        map.put('y',y);
+        map.put('z',z);
+        map.put('0',n_0);
+        map.put('1',n_1);
+        map.put('2',n_2);
+        map.put('3',n_3);
+        map.put('4',n_4);
+        map.put('5',n_5);
+        map.put('6',n_6);
+        map.put('7',n_7);
+        map.put('8',n_8);
+        map.put('9',n_9);
+
 
     }
 
@@ -190,7 +190,17 @@ public class Translator {
     // Você deve mudar o recheio deste método,
     // de acordo com os requisitos do projeto.
     private String charToMorse(Node node) {
-        return " ";
+        String morse = "";
+        while (node != root){
+            Node acima = node.getParent();
+            if (node == acima.getLeft()){
+                morse += '.';
+            } else if (node == acima.getRight()){
+                morse += '_';
+            }
+            node = acima;
+        }
+        return morse;
     }
 
 
