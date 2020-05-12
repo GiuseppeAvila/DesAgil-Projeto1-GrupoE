@@ -190,17 +190,17 @@ public class Translator {
     // Você deve mudar o recheio deste método,
     // de acordo com os requisitos do projeto.
     private String charToMorse(Node node) {
-        String morse = "";
+        LinkedList listMorse = new LinkedList();
         while (node != root){
             Node acima = node.getParent();
             if (node == acima.getLeft()){
-                morse += '.';
+                 listMorse.add('.');
             } else if (node == acima.getRight()){
-                morse += '_';
+                listMorse.add('_');
             }
             node = acima;
         }
-        return morse;
+        return listMorse.toString();
     }
 
 
@@ -217,7 +217,7 @@ public class Translator {
         String[] morseChars = new String[] {".", "-","..",".-","-.","--","...","..-",".-.",".--","-..","-.-","--.","---","....","...-","..-.",".-..",".--.",".---","-...","-..-","-.-.","-.--","--..","--.-",".....","....-","...--","..---",".----","-....","--...","---..","----.","-----"};
         LinkedList listMorse = new LinkedList(Arrays.asList(morseChars));
         for (Object c : listMorse) {
-            String t = charToMorse((Node) c);
+            String t = charToMorse((Character) c);
             translated.add(t);
         }
         return translated;
