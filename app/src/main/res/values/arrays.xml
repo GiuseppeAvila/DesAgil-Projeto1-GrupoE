@@ -8,8 +8,8 @@
     </string-array>
 
     <string-array name="numeros">
-        <item>98444444444</item>
-        <item>7777777777</item>
+        <item>11969558000</item>
+        <item>11945654384</item>
 
     </string-array>
 
@@ -17,10 +17,46 @@
 
 
     <string-array name="mensagens">
-        <item> Mensagem </item>
+        <item> Olá</item>
         <item>Oi, tudo bem?</item>
         <item>Quanto tempo!</item>
         <item>Venha me visitar!</item>
+    </string-array>
+
+
+
+    <string-array name="letras">
+        <item>a </item>
+        <item>b </item>
+        <item>c </item>
+        <item>d </item>
+        <item>e </item>
+        <item>f </item>
+        <item>g </item>
+        <item>h </item>
+        <item>i </item>
+        <item>j </item>
+        <item>k </item>
+        <item>l </item>
+        <item>m </item>
+        <item>n </item>
+        <item>o </item>
+        <item>p </item>
+        <item>q </item>
+        <item>r </item>
+        <item>s </item>
+        <item>t </item>
+        <item>u </item>
+        <item>v </item>
+        <item>w </item>
+        <item>x </item>
+        <item>y </item>
+        <item>z </item>
+
+
+
+
+
     </string-array>
 </resources>
 

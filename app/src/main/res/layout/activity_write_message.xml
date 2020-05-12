@@ -13,19 +13,8 @@
         android:layout_height="52dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="-8dp"
-        android:layout_marginBottom="91dp"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="197dp" />
-
-    <Spinner
-        android:id="@+id/spinner2"
-        android:layout_width="345dp"
-        android:layout_height="52dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="-7dp"
-        android:layout_marginBottom="173dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginBottom="96dp"
         tools:layout_editor_absoluteX="1dp"
         tools:layout_editor_absoluteY="197dp" />
 
@@ -41,23 +30,13 @@
         android:text="Enviar" />
 
     <ImageButton
-        android:id="@+id/imageButton"
-        android:layout_width="wrap_content"
-        android:layout_height="38dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="350dp"
-        android:layout_marginBottom="180dp"
-        app:srcCompat="@android:drawable/sym_action_email" />
-
-    <ImageButton
         android:id="@+id/procurar_contatos"
         android:layout_width="wrap_content"
         android:layout_height="37dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="346dp"
-        android:layout_marginBottom="100dp"
+        android:layout_marginEnd="354dp"
+        android:layout_marginBottom="103dp"
         app:srcCompat="?android:attr/actionModeFindDrawable" />
 
     <Button
@@ -78,51 +57,38 @@
         android:layout_height="415dp"
         android:layout_above="@+id/textContato"
         android:layout_alignParentEnd="true"
-        android:layout_marginEnd="-4dp"
+        android:layout_marginEnd="-2dp"
         android:layout_marginBottom="6dp"
-        android:textColorLink="#3F51B5"
-        android:textSize="25sp" />
-
-    <Switch
-        android:id="@+id/switchmorse"
-        android:layout_width="115dp"
-        android:layout_height="42dp"
-        android:layout_above="@+id/spinner"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="256dp"
-        android:layout_marginBottom="110dp"
-        android:scaleX="1.5"
-        android:scaleY="1.5"
-        android:text="Switch" />
+        android:textSize="25sp"/>
 
     <Button
-        android:id="@+id/morse"
-        android:layout_width="wrap_content"
-        android:layout_height="64dp"
-        android:layout_alignBottom="@+id/button_send"
+        android:id="@+id/button2"
+        android:layout_width="159dp"
+        android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
-        android:layout_marginEnd="133dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="122dp"
+        android:layout_marginBottom="157dp"
+        android:text="Button" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="302dp"
+        android:layout_marginBottom="157dp"
+        android:text="Button" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="15dp"
         android:layout_marginBottom="155dp"
-        android:text="PRESS" />
-
-    <Button
-        android:id="@+id/buttonpalavra"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="237dp"
-        android:layout_marginBottom="175dp"
-        android:text="PALAVRA" />
-
-    <Button
-        android:id="@+id/buttonletra"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="172dp"
-        android:text="letra" />
+        android:text="Button" />
 
 </RelativeLayout>

@@ -22,9 +22,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Spinner;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.LinkedList;
 
 
 public class SMSActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
@@ -53,12 +55,24 @@ public class SMSActivity extends AppCompatActivity implements AdapterView.OnItem
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sms);
 
-//CHAMANDO OS BOTÕES E CAIXA DE TEXTO
+//CHAMANDO OS BOTÕES , CAIXA DE TEXTO E SWITCH
         ImageButton contacts = findViewById(R.id.procurar_contatos);
         Button buttonPermission = findViewById(R.id.buttonPermission);
-      //  Button buttonSend = findViewById(R.id.button_send);
-
+        Switch switchmorse = findViewById(R.id.switchmorse);
+        Button buttonSend = findViewById(R.id.button_send);
+        Button buttonMorse = findViewById(R.id.morse);
+        Button buttonPalavra= findViewById(R.id.buttonpalavra);
+        Button buttonLetra = findViewById(R.id.buttonletra);
         TextView textEnvio = findViewById(R.id.textEnviado);
+
+
+        LinkedList<String> mensagem_morse = new LinkedList<>();
+
+// ATRIBUINDO VALOR AO SWITCH
+
+        switchmorse.setChecked(false);
+
+
 
 //FUNÇÃO PARA ABRIR OS CONTATOS
         contacts.setOnClickListener((view) -> {
@@ -91,7 +105,6 @@ public class SMSActivity extends AppCompatActivity implements AdapterView.OnItem
 
 
 
-//FUNÇÃO PARA O BOTÃO DE ENVIO
         Spinner spinner_contacts = (Spinner) findViewById(R.id.spinner);
         ArrayAdapter<CharSequence> adapter_contacts = ArrayAdapter.createFromResource(this,R.array.contatos, android.R.layout.simple_spinner_item);
         ArrayAdapter<CharSequence> adapter_numeros = ArrayAdapter.createFromResource(this,R.array.numeros, android.R.layout.simple_spinner_item);
@@ -114,31 +127,115 @@ public class SMSActivity extends AppCompatActivity implements AdapterView.OnItem
 
         Spinner textMessage = findViewById(R.id.spinner2);
         Spinner textPhone = findViewById(R.id.spinner);
-        Button buttonSend = findViewById(R.id.button_send);
-
-        buttonSend.setOnClickListener((view) -> {
-            String message = textMessage.getSelectedItem().toString();
-            int id = textPhone.getSelectedItemPosition();
-            String numero = (String) adapter_numeros.getItem(id);
 
 
-            if (message.isEmpty()) {
-                showToast("Mensagem inválida!");
-                return;
-            }else{
+// CONDICAO INICIAL QUANDO A ATIVIDADE COMECA PARA SWITCH
 
-                textEnvio.setText("Enviado para: "+numero+System.lineSeparator()+System.lineSeparator()+"Mensagem: "+message);
+        switchmorse.setText("Romano");
+        buttonMorse.setVisibility(View.INVISIBLE);
+        buttonLetra.setVisibility(View.INVISIBLE);
+        buttonPalavra.setVisibility(View.INVISIBLE);
+        spinner_msgs.setVisibility(View.VISIBLE);
+
+// FUNCAO QUE MUDA O SWITCH
+        switchmorse.setOnClickListener((view) -> {
+
+            Boolean switchState = switchmorse.isChecked();
+
+            if (switchState){
+                switchmorse.setText("Morse");
+                spinner_msgs.setVisibility(View.INVISIBLE);
+                buttonMorse.setVisibility(View.VISIBLE);
+                buttonLetra.setVisibility(View.VISIBLE);
+                buttonPalavra.setVisibility(View.VISIBLE);
+
+            }
+            else{
+                switchmorse.setText("Romano");
+                buttonMorse.setVisibility(View.INVISIBLE);
+                buttonLetra.setVisibility(View.INVISIBLE);
+                buttonPalavra.setVisibility(View.INVISIBLE);
+                spinner_msgs.setVisibility(View.VISIBLE);
+
             }
 
+        });
 
 
-            // Enviar uma mensagem de SMS. Por simplicidade,
-            // não estou verificando se foi mesmo enviada,
-            // mas é possível fazer uma versão que verifica.
-            SmsManager manager = SmsManager.getDefault();
-            manager.sendTextMessage(numero, null, message, null, null);
+
+
+// FUNCAO QUE DETEMINA O BOTAO PARA O MORSE
+
+        buttonMorse.setOnClickListener((view) -> {
+            String simboloPonto = new String();
+            simboloPonto = ".";
+            mensagem_morse.add(simboloPonto);
+
 
         });
+
+        buttonMorse.setOnLongClickListener((view) -> {
+
+            String simboloTraco = new String();
+            simboloTraco.concat("a");
+            mensagem_morse.add(simboloTraco);
+            return true;
+
+
+        });
+
+
+
+
+        // FUNCAO PARA O BOTAO DE ENVIO
+
+        buttonSend.setOnClickListener((view) -> {
+            Boolean switchState = switchmorse.isChecked();
+
+            if (switchState) {
+                String message = mensagem_morse.toString();
+                int id = textPhone.getSelectedItemPosition();
+                String numero = (String) adapter_numeros.getItem(id);
+                if (message.isEmpty()) {
+                    showToast("Mensagem inválida!");
+                    return;
+                }else{
+
+                    textEnvio.setText("Enviado para: "+numero+System.lineSeparator()+System.lineSeparator()+"Mensagem: "+message);
+                }
+
+
+                // Enviar uma mensagem de SMS. Por simplicidade,
+                // não estou verificando se foi mesmo enviada,
+                // mas é possível fazer uma versão que verifica.
+                SmsManager manager = SmsManager.getDefault();
+                manager.sendTextMessage(numero, null, message, null, null);
+
+
+            }
+            else{
+                String message = textMessage.getSelectedItem().toString();
+                int id = textPhone.getSelectedItemPosition();
+                String numero = (String) adapter_numeros.getItem(id);
+                if (message.isEmpty()) {
+                    showToast("Mensagem inválida!");
+                    return;
+                }else{
+
+                    textEnvio.setText("Enviado para: "+numero+System.lineSeparator()+System.lineSeparator()+"Mensagem: "+message);
+                }
+
+
+                // Enviar uma mensagem de SMS. Por simplicidade,
+                // não estou verificando se foi mesmo enviada,
+                // mas é possível fazer uma versão que verifica.
+                SmsManager manager = SmsManager.getDefault();
+                manager.sendTextMessage(numero, null, message, null, null);}
+
+
+        });
+
+
 
 
     }
@@ -162,6 +259,10 @@ public class SMSActivity extends AppCompatActivity implements AdapterView.OnItem
                 y2 = touchEvent.getY();
                 if(x1 < x2){
                     Intent i = new Intent(SMSActivity.this, MainActivity.class);
+
+                    startActivity(i);
+                }else if(x1 > x2){
+                    Intent i = new Intent(SMSActivity.this, Morse.class);
 
                     startActivity(i);
                 }
