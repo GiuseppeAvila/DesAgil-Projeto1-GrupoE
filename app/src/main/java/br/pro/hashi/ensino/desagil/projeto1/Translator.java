@@ -108,30 +108,23 @@ public class Translator {
         linkNodes(h,n_5,n_4,s);
         linkNodes(v,nullnode,n_3,s);
         linkNodes(u,f,nullnode1,i);
-        linkNodes(f,nullnode,nullnode,u);
         linkNodes(nullnode1,nullnode,n_2,u);
 
 
         linkNodes(a,r,w,e);
         linkNodes(r,l,nullnode,a);
-        linkNodes(l,nullnode,nullnode,r);
         linkNodes(w ,p,j,a);
-        linkNodes(p,nullnode,nullnode,w);
         linkNodes(j,nullnode,n_1,w);
 
         linkNodes(t,n,m,root);
         linkNodes(n,d,k,t);
         linkNodes(d,b,x,n);
         linkNodes(b,n_6,nullnode,d);
-        linkNodes(x,nullnode,nullnode,d);
         linkNodes(k,c,y,n);
-        linkNodes(c,nullnode,nullnode,k);
-        linkNodes(y,nullnode,nullnode,k);
 
         linkNodes(m,g,o,t);
         linkNodes(g,z,q,m);
         linkNodes(z,n_7,nullnode,g);
-        linkNodes(q,nullnode,nullnode,g);
         linkNodes(o,nullnode2,nullnode3,m);
         linkNodes(nullnode2,n_8,nullnode,o);
         linkNodes(nullnode3,n_9,n_0,o);
@@ -147,6 +140,13 @@ public class Translator {
         n_8.setParent(nullnode2);
         n_9.setParent(nullnode3);
         n_0.setParent(nullnode3);
+        f.setParent(u);
+        l.setParent(r);
+        p.setParent(w);
+        x.setParent(d);
+        c.setParent(k);
+        y.setParent(k);
+        q.setParent(g);
 
 
 
