@@ -32,7 +32,7 @@ public class Morse extends AppCompatActivity {
 
 
         String text = "";
-        String letras = "abcdefghijklmnopqrstuvwxyz";
+        String letras = "abcdefghijklmnopqrstuvwxyz0123456789";
          for (int i = 0; i < letras.length(); i++) {
             text += letras.charAt(i) + ":       " + translator.charToMorse(letras.charAt(i)) + "\n";
 
@@ -56,7 +56,7 @@ public class Morse extends AppCompatActivity {
             }
             else {
                 String text1 = "";
-                String letras1 = "abcdefghijklmnopqrstuvwxyz";
+                String letras1 = "abcdefghijklmnopqrstuvwxyz0123456789";
                 for (int i = 0; i < letras1.length(); i++) {
                     text1 += letras1.charAt(i) + ":       " + translator.charToMorse(letras1.charAt(i)) + "\n";
                 }
