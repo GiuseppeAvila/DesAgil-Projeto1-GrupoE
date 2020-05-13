@@ -391,8 +391,6 @@ public class Translator {
                 if (nodeAtual.getRight() != null) {
                     nodeAtual = nodeAtual.getRight();
                 }
-            } else if (caractere == ' ' ){
-                return 'H';
             }else {
                 nodeAtual = root;
             }

@@ -176,7 +176,7 @@ public class SMSActivity extends AppCompatActivity implements AdapterView.OnItem
                 simboloPonto = ".";
                 mensagem_morse.add(simboloPonto);
                 Object[] array = mensagem_morse.toArray();
-                String message = Arrays.toString(array).replaceAll("\\[|\\]|,|\\s", "");
+                String message = Arrays.toString(array).replaceAll("\\[|\\]|,|", "");
                 textoMorse.setText(message);
             }else{
                 textEnvio.setText("");
@@ -193,7 +193,7 @@ public class SMSActivity extends AppCompatActivity implements AdapterView.OnItem
                 simboloTraco = "-";
                 mensagem_morse.add(simboloTraco);
                 Object[] array = mensagem_morse.toArray();
-                String message = Arrays.toString(array).replaceAll("\\[|\\]|,|\\s", "");
+                String message = Arrays.toString(array).replaceAll("\\[|\\]|,|", "");
                 textoMorse.setText(message);
             }else{
                 textEnvio.setText("");
@@ -208,7 +208,13 @@ public class SMSActivity extends AppCompatActivity implements AdapterView.OnItem
 
         buttonPalavra.setOnClickListener((view) -> {
 
-            mensagem_romano.add("H");
+            mensagem_romano.add(" ");
+            Object[] arrayy = mensagem_romano.toArray();
+            String messagem = Arrays.toString(arrayy).replaceAll("\\[|\\]|,|" ,   "");
+            textEnvio.setText(messagem);
+            mensagem_morse.clear();
+            textoMorse.setText("");
+
 
 
         });
@@ -224,8 +230,7 @@ public class SMSActivity extends AppCompatActivity implements AdapterView.OnItem
             String string =String.valueOf(letra);
             mensagem_romano.add(string);
             Object[] arrayy = mensagem_romano.toArray();
-            String messagem = Arrays.toString(arrayy).replaceAll("\\[|\\]|,|\\s", "");
-            message.replace('H','L');
+            String messagem = Arrays.toString(arrayy).replaceAll("\\[|\\]|,|", "");
             textEnvio.setText(messagem);
             mensagem_morse.clear();
             textoMorse.setText("");
@@ -244,7 +249,7 @@ public class SMSActivity extends AppCompatActivity implements AdapterView.OnItem
 
             if (switchState) {
                 Object[] array = mensagem_romano.toArray();
-                String message = Arrays.toString(array).replaceAll("\\[|\\]|,|\\s", "");
+                String message = Arrays.toString(array).replaceAll("\\[|\\]|,|", "");
 
                 int id = textPhone.getSelectedItemPosition();
                 String numero = (String) adapter_numeros.getItem(id);
