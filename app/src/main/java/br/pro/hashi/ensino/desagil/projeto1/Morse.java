@@ -63,7 +63,7 @@ public class Morse extends AppCompatActivity {
                     text2[0] += listMorse2.get(i) + ":       " + translator.morseToChar(morse2) +"\n";
                 }
                 textViewMorseToChar1.setText(text1[0]);
-                textViewMorseToChar1.setText(text2[0]);
+                textViewMorseToChar2.setText(text2[0]);
                 titulo.setText("Morse para romano");
             }
             else {
