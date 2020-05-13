@@ -25,356 +25,230 @@ public class Translator {
     public Translator() {
         // dash = right
         // dot = left
+
+
+
+        Node e = new Node('e');
+        Node t = new Node('t');
+        Node i = new Node('i');
+        Node a = new Node('a');
+        Node n = new Node('n');
+        Node m = new Node('m');
+        Node s = new Node('s');
+        Node u = new Node('u');
+        Node r = new Node('r');
+        Node w = new Node('w');
+        Node d = new Node('d');
+        Node k = new Node('k');
+        Node g = new Node('g');
+        Node o = new Node('o');
+        Node h = new Node('h');
+        Node v = new Node('v');
+        Node f = new Node('f');
+        Node blank1 = new Node(' ');
+        Node l = new Node('l');
+        Node blank2 = new Node(' ');
+        Node p = new Node('p');
+        Node b = new Node('b');
+        Node j = new Node('j');
+        Node x = new Node('x');
+        Node c = new Node('c');
+        Node y = new Node('y');
+        Node z = new Node('z');
+        Node q = new Node('q');
+        Node blank3 = new Node(' ');
+        Node blank4 = new Node(' ');
+        Node n5 = new Node('5');
+        Node n4 = new Node('4');
+        Node blank5 = new Node(' ');
+        Node n3 = new Node('3');
+        Node blank6 = new Node(' ');
+        Node blank7 = new Node(' ');
+        Node blank8 = new Node(' ');
+        Node n2 = new Node('2');
+        Node blank9 = new Node(' ');
+        Node blank10 = new Node(' ');
+        Node blank11 = new Node(' ');
+        Node blank12 = new Node(' ');
+        Node blank13 = new Node(' ');
+        Node blank14 = new Node(' ');
+        Node n6 = new Node('6');
+        Node n1 = new Node('1');
+        Node blank15 = new Node(' ');
+        Node blank16 = new Node(' ');
+        Node blank17 = new Node(' ');
+        Node blank18 = new Node(' ');
+        Node blank19 = new Node(' ');
+        Node n7 = new Node('7');
+        Node blank20 = new Node(' ');
+        Node blank21 = new Node(' ');
+        Node blank22 = new Node(' ');
+        Node n8 = new Node('8');
+        Node blank23 = new Node(' ');
+        Node n9 = new Node('9');
+        Node n0 = new Node('0');
+
+
         root = new Node('*');
         map = new HashMap<>();
         map.put('*', root);
-
-        //--> Esquerda para direira
-        //Nivel 1
-        Node nodeE = new Node('e');
-        nodeE.setParent(root);
-        Node nodeT = new Node('t');
-        nodeT.setParent(root);
-        root.setLeft(nodeE);
-        root.setRight(nodeT);
-        map.put('e', nodeE);
-        map.put('t', nodeT);
-
-        //Nivel 2
-
-        //left
-        Node nodeI = new Node('i');
-        nodeI.setParent(nodeE);
-        Node nodeA = new Node('a');
-        nodeA.setParent(nodeE);
-        nodeE.setLeft(nodeI);
-        nodeE.setRight(nodeA);
-        map.put('i', nodeI);
-        map.put('a', nodeA);
-
-        //right
-        Node nodeN = new Node('n');
-        nodeN.setParent(nodeT);
-        Node nodeM = new Node('m');
-        nodeM.setParent(nodeT);
-        nodeT.setLeft(nodeN);
-        nodeT.setRight(nodeM);
-        map.put('n', nodeN);
-        map.put('m', nodeM);
-
-
-        //Nivel 3
-
-        //left
-
-        //left
-        Node nodeS = new Node('s');
-        nodeS.setParent(nodeI);
-        Node nodeU = new Node('u');
-        nodeU.setParent(nodeI);
-        nodeI.setLeft(nodeS);
-        nodeI.setRight(nodeU);
-        map.put('s', nodeS);
-        map.put('u', nodeU);
-
-        //right
-        Node nodeR = new Node('r');
-        nodeR.setParent(nodeA);
-        Node nodeW = new Node('w');
-        nodeW.setParent(nodeA);
-        nodeA.setLeft(nodeR);
-        nodeA.setRight(nodeW);
-        map.put('r', nodeR);
-        map.put('w', nodeW);
-
-        // right
-
-        //left
-        Node nodeD = new Node('d');
-        nodeD.setParent(nodeN);
-        Node nodeK = new Node('k');
-        nodeK.setParent(nodeN);
-        nodeN.setLeft(nodeD);
-        nodeN.setRight(nodeK);
-        map.put('d', nodeD);
-        map.put('k', nodeK);
-
-        //right
-        Node nodeG = new Node('g');
-        nodeG.setParent(nodeM);
-        Node nodeO = new Node('o');
-        nodeO.setParent(nodeM);
-        nodeM.setLeft(nodeG);
-        nodeM.setRight(nodeO);
-        map.put('g', nodeG);
-        map.put('o', nodeO);
-
-        //Nivel 4
-
-        //left
-
-        //left
-
-        //left
-        Node nodeH = new Node('h');
-        nodeH.setParent(nodeS);
-        Node nodeV = new Node('v');
-        nodeV.setParent(nodeS);
-        nodeS.setLeft(nodeH);
-        nodeS.setRight(nodeV);
-        map.put('h', nodeH);
-        map.put('v', nodeV);
-
-        //right
-        Node nodeF = new Node('f');
-        nodeF.setParent(nodeU);
-        Node nodeBlank1 = new Node(' ');
-        nodeBlank1.setParent(nodeU);
-        nodeU.setLeft(nodeF);
-        nodeU.setRight(nodeBlank1);
-        map.put('f', nodeF);
-
-        // right
-
-        //left
-        Node nodeL = new Node('l');
-        nodeL.setParent(nodeR);
-        Node nodeBlank2 = new Node(' ');
-        nodeBlank2.setParent(nodeR);
-        nodeR.setLeft(nodeL);
-        nodeR.setRight(nodeBlank2);
-        map.put('l', nodeL);
-
-        //right
-        Node nodeP = new Node('p');
-        nodeP.setParent(nodeW);
-        Node nodeJ = new Node('j');
-        nodeJ.setParent(nodeW);
-        nodeW.setLeft(nodeP);
-        nodeW.setRight(nodeJ);
-        map.put('p', nodeP);
-        map.put('j', nodeJ);
-
-
-        //right
-
-        //left
-
-        //left
-        Node nodeB = new Node('b');
-        nodeB.setParent(nodeD);
-        Node nodeX = new Node('x');
-        nodeX.setParent(nodeD);
-        nodeD.setLeft(nodeB);
-        nodeD.setRight(nodeX);
-        map.put('b', nodeB);
-        map.put('x', nodeX);
-
-        //right
-        Node nodeC = new Node('c');
-        nodeC.setParent(nodeK);
-        Node nodeY = new Node('y');
-        nodeY.setParent(nodeK);
-        nodeK.setLeft(nodeC);
-        //noinspection SuspiciousNameCombination
-        nodeK.setRight(nodeY);
-        map.put('c', nodeC);
-        map.put('y', nodeY);
-
-        // right
-
-        //left
-        Node nodeZ = new Node('z');
-        nodeZ.setParent(nodeG);
-        Node nodeQ = new Node('q');
-        nodeQ.setParent(nodeG);
-        nodeG.setLeft(nodeZ);
-        nodeG.setRight(nodeQ);
-        map.put('z', nodeZ);
-        map.put('q', nodeQ);
-
-        //right
-        Node nodeBlank3 = new Node(' ');
-        nodeBlank3.setParent(nodeO);
-        Node nodeBlank4 = new Node(' ');
-        nodeBlank4.setParent(nodeO);
-        nodeO.setLeft(nodeBlank3);
-        nodeO.setRight(nodeBlank4);
-
-        //Nivel 5
-
-        //left
-
-        //left
-
-        //left
-
-        //left
-        Node node5 = new Node('5');
-        node5.setParent(nodeH);
-        Node node4 = new Node('4');
-        node4.setParent(nodeH);
-        nodeH.setLeft(node5);
-        nodeH.setRight(node4);
-        map.put('5', node5);
-        map.put('4', node4);
-
-        //right
-        Node nodeBlank5 = new Node(' ');
-        nodeBlank5.setParent(nodeV);
-        Node node3 = new Node('3');
-        node3.setParent(nodeV);
-        nodeV.setLeft(nodeBlank5);
-        nodeV.setRight(node3);
-        map.put('3', node3);
-
-        // right
-
-        //left
-        Node nodeBlank6 = new Node(' ');
-        nodeBlank6.setParent(nodeF);
-        Node nodeBlank7 = new Node(' ');
-        nodeBlank7.setParent(nodeF);
-        nodeF.setLeft(nodeBlank6);
-        nodeF.setRight(nodeBlank7);
-
-        //right
-        Node nodeBlank8 = new Node(' ');
-        nodeBlank8.setParent(nodeBlank1);
-        Node node2 = new Node('2');
-        node2.setParent(nodeBlank1);
-        nodeBlank1.setLeft(nodeBlank8);
-        nodeBlank1.setRight(node2);
-        map.put('2', node2);
-
-
-        //right
-
-        //left
-
-        //left
-        Node nodeBlank9 = new Node(' ');
-        nodeBlank9.setParent(nodeL);
-        Node nodeBlank10 = new Node(' ');
-        nodeBlank10.setParent(nodeL);
-        nodeL.setLeft(nodeBlank9);
-        nodeL.setRight(nodeBlank10);
-
-        //right
-        Node nodeBlank11 = new Node(' ');
-        nodeBlank11.setParent(nodeBlank2);
-        nodeBlank2.setRight(nodeBlank11);
-
-        // right
-
-        //left
-        Node nodeBlank12 = new Node(' ');
-        nodeBlank12.setParent(nodeP);
-        Node nodeBlank13 = new Node(' ');
-        nodeBlank13.setParent(nodeP);
-        nodeP.setLeft(nodeBlank12);
-        nodeP.setRight(nodeBlank13);
-
-        //right
-        Node nodeBlank14 = new Node(' ');
-        nodeBlank14.setParent(nodeJ);
-        Node node1 = new Node('1');
-        node1.setParent(nodeJ);
-        nodeJ.setLeft(nodeBlank14);
-        nodeJ.setRight(node1);
-        map.put('1', node1);
-
-        //Right
-
-        //left
-
-        //left
-
-        //left
-        Node node6 = new Node('6');
-        node6.setParent(nodeB);
-        nodeB.setLeft(node6);
-        map.put('6', node6);
-
-        //right
-        Node nodeBlank15 = new Node(' ');
-        nodeBlank15.setParent(nodeX);
-        nodeX.setRight(nodeBlank15);
-
-        // right
-
-        //left
-        Node nodeBlank16 = new Node(' ');
-        nodeBlank16.setParent(nodeC);
-        Node nodeBlank17 = new Node(' ');
-        nodeBlank17.setParent(nodeC);
-        nodeC.setLeft(nodeBlank16);
-        nodeC.setRight(nodeBlank17);
-
-        //right
-        Node nodeBlank18 = new Node(' ');
-        nodeBlank18.setParent(nodeY);
-        Node nodeBlank19 = new Node(' ');
-        nodeBlank19.setParent(nodeY);
-        nodeY.setLeft(nodeBlank18);
-        nodeY.setRight(nodeBlank19);
-
-
-        //right
-
-        //left
-
-        //left
-        Node node7 = new Node('7');
-        node7.setParent(nodeZ);
-        Node nodeBlank20 = new Node(' ');
-        nodeBlank20.setParent(nodeZ);
-        nodeZ.setLeft(node7);
-        nodeZ.setRight(nodeBlank20);
-        map.put('7', node7);
-
-
-        //right
-        Node nodeBlank21 = new Node(' ');
-        nodeBlank21.setParent(nodeQ);
-        Node nodeBlank22 = new Node(' ');
-        nodeBlank22.setParent(nodeQ);
-        nodeQ.setLeft(nodeBlank21);
-        nodeQ.setRight(nodeBlank22);
-
-        // right
-
-        //left
-        Node node8 = new Node('8');
-        node8.setParent(nodeBlank3);
-        Node nodeBlank23 = new Node(' ');
-        nodeBlank23.setParent(nodeBlank3);
-        nodeBlank3.setLeft(node8);
-        nodeBlank3.setRight(nodeBlank23);
-        map.put('8', node8);
-
-        //right
-        Node node9 = new Node('9');
-        node9.setParent(nodeBlank4);
-        Node node0 = new Node('0');
-        node0.setParent(nodeBlank4);
-        nodeBlank4.setLeft(node9);
-        nodeBlank4.setRight(node0);
-        map.put('9', node9);
-        map.put('0', node0);
+        e.setParent(root);
+        t.setParent(root);
+        root.setLeft(e);
+        root.setRight(t);
+        map.put('e', e);
+        map.put('t', t);
+        i.setParent(e);
+        a.setParent(e);
+        e.setLeft(i);
+        e.setRight(a);
+        map.put('i', i);
+        map.put('a', a);
+        n.setParent(t);
+        m.setParent(t);
+        t.setLeft(n);
+        t.setRight(m);
+        map.put('n', n);
+        map.put('m', m);
+        s.setParent(i);
+        u.setParent(i);
+        i.setLeft(s);
+        i.setRight(u);
+        map.put('s', s);
+        map.put('u', u);
+        r.setParent(a);
+        w.setParent(a);
+        a.setLeft(r);
+        a.setRight(w);
+        map.put('r', r);
+        map.put('w', w);
+        d.setParent(n);
+        k.setParent(n);
+        n.setLeft(d);
+        n.setRight(k);
+        map.put('d', d);
+        map.put('k', k);
+        g.setParent(m);
+        o.setParent(m);
+        m.setLeft(g);
+        m.setRight(o);
+        map.put('g', g);
+        map.put('o', o);
+        h.setParent(s);
+        v.setParent(s);
+        s.setLeft(h);
+        s.setRight(v);
+        map.put('h', h);
+        map.put('v', v);
+        f.setParent(u);
+        blank1.setParent(u);
+        u.setLeft(f);
+        u.setRight(blank1);
+        map.put('f', f);
+        l.setParent(r);
+        blank2.setParent(r);
+        r.setLeft(l);
+        r.setRight(blank2);
+        map.put('l', l);
+        p.setParent(w);
+        j.setParent(w);
+        w.setLeft(p);
+        w.setRight(j);
+        map.put('p', p);
+        map.put('j', j);
+        b.setParent(d);
+        x.setParent(d);
+        d.setLeft(b);
+        d.setRight(x);
+        map.put('b', b);
+        map.put('x', x);
+        c.setParent(k);
+        y.setParent(k);
+        k.setLeft(c);
+        k.setRight(y);
+        map.put('c', c);
+        map.put('y', y);
+        z.setParent(g);
+        q.setParent(g);
+        g.setLeft(z);
+        g.setRight(q);
+        map.put('z', z);
+        map.put('q', q);
+        blank3.setParent(o);
+        blank4.setParent(o);
+        o.setLeft(blank3);
+        o.setRight(blank4);
+        n5.setParent(h);
+        n4.setParent(h);
+        h.setLeft(n5);
+        h.setRight(n4);
+        map.put('5', n5);
+        map.put('4', n4);
+        blank5.setParent(v);
+        n3.setParent(v);
+        v.setLeft(blank5);
+        v.setRight(n3);
+        map.put('3', n3);
+        blank6.setParent(f);
+        blank7.setParent(f);
+        f.setLeft(blank6);
+        f.setRight(blank7);
+        blank8.setParent(blank1);
+        n2.setParent(blank1);
+        blank1.setLeft(blank8);
+        blank1.setRight(n2);
+        map.put('2', n2);
+        blank9.setParent(l);
+        blank10.setParent(l);
+        l.setLeft(blank9);
+        l.setRight(blank10);
+        blank11.setParent(blank2);
+        blank2.setRight(blank11);
+        blank12.setParent(p);
+        blank13.setParent(p);
+        p.setLeft(blank12);
+        p.setRight(blank13);
+        blank14.setParent(j);
+        n1.setParent(j);
+        j.setLeft(blank14);
+        j.setRight(n1);
+        map.put('1', n1);
+        n6.setParent(b);
+        b.setLeft(n6);
+        map.put('6', n6);
+        blank15.setParent(x);
+        x.setRight(blank15);
+        blank16.setParent(c);
+        blank17.setParent(c);
+        c.setLeft(blank16);
+        c.setRight(blank17);
+        blank18.setParent(y);
+        blank19.setParent(y);
+        y.setLeft(blank18);
+        y.setRight(blank19);
+        n7.setParent(z);
+        blank20.setParent(z);
+        z.setLeft(n7);
+        z.setRight(blank20);
+        map.put('7', n7);
+        blank21.setParent(q);
+        blank22.setParent(q);
+        q.setLeft(blank21);
+        q.setRight(blank22);
+        n8.setParent(blank3);
+        blank23.setParent(blank3);
+        blank3.setLeft(n8);
+        blank3.setRight(blank23);
+        map.put('8', n8);
+        n9.setParent(blank4);
+        n0.setParent(blank4);
+        blank4.setLeft(n9);
+        blank4.setRight(n0);
+        map.put('9', n9);
+        map.put('0', n0);
 
     }
-    private Node nodeparent;
-    private Node noderight;
-    private Node nodeleft;
 
-
-
-    public void linkNodes(Node atual, Node nodeleft, Node noderight, Node nodeparent){
-        atual.setLeft(nodeleft);
-        atual.setRight(noderight);
-        atual.setParent(nodeparent);
-    }
 
 
     // Você deve mudar o recheio deste método,
