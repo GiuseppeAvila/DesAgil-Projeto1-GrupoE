@@ -204,6 +204,16 @@ public class SMSActivity extends AppCompatActivity implements AdapterView.OnItem
     });
 
 
+// FUNCAO PARA BOTAO DE PALAVRAS
+
+        buttonPalavra.setOnClickListener((view) -> {
+
+            mensagem_romano.add("H");
+
+
+        });
+
+
 
 //FUNCAO QUE DETERMINA O BOTAO PARA A SEPARACAO DE LETRAS
 
@@ -215,6 +225,7 @@ public class SMSActivity extends AppCompatActivity implements AdapterView.OnItem
             mensagem_romano.add(string);
             Object[] arrayy = mensagem_romano.toArray();
             String messagem = Arrays.toString(arrayy).replaceAll("\\[|\\]|,|\\s", "");
+            message.replace('H','L');
             textEnvio.setText(messagem);
             mensagem_morse.clear();
             textoMorse.setText("");
@@ -223,14 +234,6 @@ public class SMSActivity extends AppCompatActivity implements AdapterView.OnItem
 
         });
 
-// FUNCAO PARA BOTAO DE PALAVRAS
-
-        buttonPalavra.setOnClickListener((view) -> {
-
-            mensagem_romano.add(" ");
-
-
-        });
 
 
 
@@ -242,6 +245,7 @@ public class SMSActivity extends AppCompatActivity implements AdapterView.OnItem
             if (switchState) {
                 Object[] array = mensagem_romano.toArray();
                 String message = Arrays.toString(array).replaceAll("\\[|\\]|,|\\s", "");
+
                 int id = textPhone.getSelectedItemPosition();
                 String numero = (String) adapter_numeros.getItem(id);
                 if (message.isEmpty()) {
