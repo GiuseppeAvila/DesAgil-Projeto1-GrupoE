@@ -17,6 +17,7 @@ public class Morse extends AppCompatActivity {
     private Translator translator;
     Switch switch1;
     TextView textViewMorseToChar;
+    TextView titulo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +26,9 @@ public class Morse extends AppCompatActivity {
         translator = new Translator();
         textViewMorseToChar= findViewById(R.id.textViewMorseToChar);
         switch1 = (Switch)findViewById(R.id.switch1);
-        textViewMorseToChar.setText("oiiiiiiii");
+        titulo= findViewById(R.id.titulo);
+
+        // textViewMorseToChar.setText("oiiiiiiii");
 
 
         String text = "";
@@ -35,7 +38,7 @@ public class Morse extends AppCompatActivity {
 
         }
         textViewMorseToChar.setText(text);
-
+        titulo.setText("Romano para morse");
 
         switch1.setOnClickListener((view) -> {
             Boolean switchState = switch1.isChecked();
@@ -49,6 +52,7 @@ public class Morse extends AppCompatActivity {
                     text2 += listMorse.get(i) + ":       " + translator.morseToChar(morse) +"\n";
                 }
                 textViewMorseToChar.setText(text2);
+                titulo.setText("Morse para romano");
             }
             else {
                 String text1 = "";
@@ -57,6 +61,8 @@ public class Morse extends AppCompatActivity {
                     text1 += letras1.charAt(i) + ":       " + translator.charToMorse(letras1.charAt(i)) + "\n";
                 }
                 textViewMorseToChar.setText(text1);
+                titulo.setText("Romano para morse");
+
             }
 
             });
