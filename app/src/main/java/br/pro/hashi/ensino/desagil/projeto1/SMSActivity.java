@@ -201,7 +201,7 @@ public class SMSActivity extends AppCompatActivity implements AdapterView.OnItem
                 finalBool.set(true);
             }
             return true;
-    });
+        });
 
 
 // FUNCAO PARA BOTAO DE PALAVRAS
