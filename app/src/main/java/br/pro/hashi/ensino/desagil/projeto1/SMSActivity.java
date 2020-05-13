@@ -26,6 +26,8 @@ import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
 import java.util.LinkedList;
 
 
@@ -64,8 +66,9 @@ public class SMSActivity extends AppCompatActivity implements AdapterView.OnItem
         Button buttonPalavra= findViewById(R.id.buttonpalavra);
         Button buttonLetra = findViewById(R.id.buttonletra);
         TextView textEnvio = findViewById(R.id.textEnviado);
+        TextView textoMorse = findViewById(R.id.textoMorse);
 
-
+        Translator arvore = new Translator();
         LinkedList<String> mensagem_morse = new LinkedList<>();
 
 // ATRIBUINDO VALOR AO SWITCH
@@ -149,6 +152,7 @@ public class SMSActivity extends AppCompatActivity implements AdapterView.OnItem
                 buttonLetra.setVisibility(View.VISIBLE);
                 buttonPalavra.setVisibility(View.VISIBLE);
 
+
             }
             else{
                 switchmorse.setText("Romano");
@@ -170,6 +174,9 @@ public class SMSActivity extends AppCompatActivity implements AdapterView.OnItem
             String simboloPonto = new String();
             simboloPonto = ".";
             mensagem_morse.add(simboloPonto);
+            Object[] array = mensagem_morse.toArray();
+            String message = Arrays.toString(array).replaceAll("\\[|\\]|,|\\s", "");
+            textoMorse.setText(message);
 
 
         });
@@ -177,23 +184,35 @@ public class SMSActivity extends AppCompatActivity implements AdapterView.OnItem
         buttonMorse.setOnLongClickListener((view) -> {
 
             String simboloTraco = new String();
-            simboloTraco.concat("a");
+            simboloTraco = "-";
             mensagem_morse.add(simboloTraco);
+            Object[] array = mensagem_morse.toArray();
+            String message = Arrays.toString(array).replaceAll("\\[|\\]|,|\\s", "");
+            textoMorse.setText(message);
+
             return true;
+    });
+
+        buttonLetra.setOnClickListener((view) -> {
+            Object[] array = mensagem_morse.toArray();
+            String message = Arrays.toString(array).replaceAll("\\[|\\]|,|\\s", "");
+            //String letra = arvore.charToMorse(message);
+            mensagem_morse.clear();
+            textoMorse.setText("");
+
 
 
         });
 
 
-
-
-        // FUNCAO PARA O BOTAO DE ENVIO
+    // FUNCAO PARA O BOTAO DE ENVIO
 
         buttonSend.setOnClickListener((view) -> {
             Boolean switchState = switchmorse.isChecked();
 
             if (switchState) {
-                String message = mensagem_morse.toString();
+                Object[] array = mensagem_morse.toArray();
+                String message = Arrays.toString(array).replaceAll("\\[|\\]|,|\\s", "");
                 int id = textPhone.getSelectedItemPosition();
                 String numero = (String) adapter_numeros.getItem(id);
                 if (message.isEmpty()) {
@@ -236,9 +255,8 @@ public class SMSActivity extends AppCompatActivity implements AdapterView.OnItem
         });
 
 
-
-
     }
+
 
     // Método de conveniência para mostrar uma bolha de texto.
     private void showToast(String text) {
