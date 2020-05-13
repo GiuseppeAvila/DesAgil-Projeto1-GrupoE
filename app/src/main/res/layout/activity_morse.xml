@@ -8,14 +8,33 @@
 
     <Switch
         android:id="@+id/switch1"
-        android:layout_width="189dp"
-        android:layout_height="47dp"
-        android:text="Morse  "
+        android:layout_width="64dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="332dp"
+        android:layout_marginTop="152dp"
+        android:text="  "
         android:textOff="Romano para morse"
         android:textOn="Morse para romano"
         android:thumbTint="#3F51B5"
         android:trackTint="#00BCD4"
-        tools:layout_editor_absoluteX="221dp"
-        tools:layout_editor_absoluteY="118dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewMorseToChar"
+        android:layout_width="380dp"
+        android:layout_height="519dp"
+        android:text="TextView"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="206dp" />
+
+    <TextView
+        android:id="@+id/titulo"
+        android:layout_width="304dp"
+        android:layout_height="77dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="132dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
