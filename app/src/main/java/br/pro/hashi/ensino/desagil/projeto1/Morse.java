@@ -17,45 +17,55 @@ public class Morse extends AppCompatActivity {
     private Translator translator;
     Switch switch1;
     TextView textViewMorseToChar;
+    TextView titulo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_morse);
-
+        translator = new Translator();
         textViewMorseToChar= findViewById(R.id.textViewMorseToChar);
         switch1 = (Switch)findViewById(R.id.switch1);
+        titulo= findViewById(R.id.titulo);
+
+        // textViewMorseToChar.setText("oiiiiiiii");
 
 
+        String text = "";
+        String letras = "abcdefghijklmnopqrstuvwxyz0123456789";
+         for (int i = 0; i < letras.length(); i++) {
+            text += letras.charAt(i) + ":       " + translator.charToMorse(letras.charAt(i)) + "\n";
+
+        }
+        textViewMorseToChar.setText(text);
+        titulo.setText("Romano para morse");
 
         switch1.setOnClickListener((view) -> {
-
             Boolean switchState = switch1.isChecked();
-            String str1, str2;
+
             if (switchState) {
-                str1 = switch1.getTextOn().toString();
-                LinkedList morseToCharList = translator.getCodes();
-                String text = "";
+                String text2 = "";
                 String[] morseChars = new String[]{".", "-", "..", ".-", "-.", "--", "...", "..-", ".-.", ".--", "-..", "-.-", "--.", "---", "....", "...-", "..-.", ".-..", ".--.", ".---", "-...", "-..-", "-.-.", "-.--", "--..", "--.-", ".....", "....-", "...--", "..---", ".----", "-....", "--...", "---..", "----.", "-----"};
                 LinkedList listMorse = new LinkedList(Arrays.asList(morseChars));
-                for (int i = 0; i < morseToCharList.size(); i++) {
-                    text += listMorse.get(i) + ":       " + morseToCharList.get(i) + "/n";
+                for (int i = 0; i < morseChars.length; i++) {
+                    String morse =  listMorse.get(i).toString();
+                    text2 += listMorse.get(i) + ":       " + translator.morseToChar(morse) +"\n";
                 }
-                textViewMorseToChar.setText(text);
+                textViewMorseToChar.setText(text2);
+                titulo.setText("Morse para romano");
             }
             else {
-                String text = "";
-                str1 = switch1.getTextOff().toString();
-                String[] letras = new String[]{"a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"};
-                LinkedList listLetras = new LinkedList(Arrays.asList(letras));
-                for (Object l : listLetras) {
-                    text += l + ":       " + translator.charToMorse((Character) l) + "/n";
+                String text1 = "";
+                String letras1 = "abcdefghijklmnopqrstuvwxyz0123456789";
+                for (int i = 0; i < letras1.length(); i++) {
+                    text1 += letras1.charAt(i) + ":       " + translator.charToMorse(letras1.charAt(i)) + "\n";
                 }
-                textViewMorseToChar.setText(text);
+                textViewMorseToChar.setText(text1);
+                titulo.setText("Romano para morse");
 
             }
 
-    });
+            });
     }
     public boolean onTouchEvent(MotionEvent touchEvent){
         switch(touchEvent.getAction()){
