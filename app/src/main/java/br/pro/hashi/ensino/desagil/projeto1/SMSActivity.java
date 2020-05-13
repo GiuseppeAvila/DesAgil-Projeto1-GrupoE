@@ -208,8 +208,17 @@ public class SMSActivity extends AppCompatActivity implements AdapterView.OnItem
 
         buttonPalavra.setOnClickListener((view) -> {
 
-            mensagem_romano.add("H");
-
+            Object[] array = mensagem_morse.toArray();
+            String message = Arrays.toString(array).replaceAll("\\[|\\]|,|\\s", "");
+            char letra = arvore.morseToChar(message);
+            String string =String.valueOf(letra);
+            mensagem_romano.add(string);
+            mensagem_romano.add(" ");
+            Object[] arrayy = mensagem_romano.toArray();
+            String messagem = Arrays.toString(arrayy).replaceAll("\\[|\\]|,|\\s", "");
+            textEnvio.setText(messagem);
+            mensagem_morse.clear();
+            textoMorse.setText("");
 
         });
 
